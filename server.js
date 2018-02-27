@@ -84,7 +84,7 @@ function handshake(code, ores) {
     };
     
     var req = http.request(options, function (res) {
-         var data = '';
+        var data = '';
         res.setEncoding('utf8');
         res.on('data', function (chunk) {
             data += chunk;
@@ -94,6 +94,7 @@ function handshake(code, ores) {
             //once the access token is received store it
             myToken = JSON.parse(data);
 			linkedin = Linkedin.init(myToken);
+			ores.redirect("/");
         });
         req.on('error', function (e) {
             console.log("problem with request: " + e.message);
