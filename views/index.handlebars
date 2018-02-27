@@ -22,19 +22,17 @@
 
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 margin-bottom">
-			<div class="container">
+			<div class="container-float">
 				<div class="row pos-rel">
 					<!-- menu-top image -->
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-v-padding"><img src="/assets/img/menu-top.png" class="img img-responsive" alt="" /></div>
 					<!-- List available burgers here - background is menu-mid -->
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-v-padding menu-padding all-mid" id="menu-mid">
 						<ul>
-							{{#each burgers}}
-								{{#unless devoured}}
-									<p class="menu-items">{{burger_name}}</p>
-									<button class="btn btn-warning devour" data-id="{{id}}">Move To The Menu</button>
-								{{/unless}}
-							{{/each}}
+
+									<p class="menu-items">Want to connect to LinkedIn?</p>
+									<button class="btn btn-warning devour">Log Into LinkedIn</button>
+
 						</ul>
 						<p class="menu-price">$5.95</p>
 					</div>
@@ -45,7 +43,7 @@
 		</div>
 
 		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 margin-bottom">
-			<div class="container">
+			<div class="container-float">
 				<div class="row pos-rel">
 					<!-- served-top image -->
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-v-padding"><img src="/assets/img/served-top.png" class="img img-responsive" alt="" /></div>
@@ -54,11 +52,7 @@
 
 						<ul>
 							<p class="served-title text-uppercase">Daily Menu</p>
-							{{#each burgers}}
-								{{#if devoured}}
-									<p class="served-items text-uppercase">{{burger_name}}</p>
-								{{/if}}
-							{{/each}}
+
 						</ul>
 					</div>
 					<!-- served-bottom image -->
@@ -83,7 +77,7 @@
 		$("#btnSubmit").on("click", function(e) {
 			e.preventDefault();
 
-			console.log("Submit Button was pressed.");
+			console.log("Button was pressed.");
 			$.ajax("/api/burgers", {
 				type: "POST",
 				data: { burger_name: $("#burger_name").val().trim() }
@@ -94,23 +88,5 @@
 			);
 		});
 
-		$(".devour").on("click", function(e) {
-			e.preventDefault();
-
-			console.log("Delete Button was pressed.");
-			let thisID = $(this).attr("data-id");
-			$.ajax("/api/burgers/" + thisID, {
-				type: "PUT",
-				data: { id: thisID }
-			}).then(
-				function() {
-					location.reload();
-				}
-			);
-		})
-
 	});
-	// List available burgers to the menu
-	// Add a burger to the database
-	// List served burgers to the served board
 </script>
