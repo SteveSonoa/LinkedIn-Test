@@ -14,14 +14,12 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "bf16b1e4efbe9e",
-    "password": "7f462fbe",
-    "database": "heroku_2c4dd4fce59b9ce",
+    "username": "b932d6ed518ad2",
+    "password": "abf67a30",
+    "database": "heroku_989f83df2a645e1",
     "host": "us-cdbr-iron-east-05.cleardb.net",
     "dialect": "mysql"
   }
 }
 
-
-
-// bf16b1e4efbe9e:7f462fbe@us-cdbr-iron-east-05.cleardb.net/heroku_2c4dd4fce59b9ce?reconnect=true
+// mysql://b932d6ed518ad2:abf67a30@us-cdbr-iron-east-05.cleardb.net/heroku_989f83df2a645e1?reconnect=true
