@@ -55,6 +55,7 @@ app.get('/auth', function (req, res) {
 });
 
 var myToken;
+var linkedin;
 
 function handshake(code, ores) {
 
@@ -88,6 +89,7 @@ function handshake(code, ores) {
         res.on('end', function () {
             //once the access token is received store it
             myToken = JSON.parse(data);
+			linkedin = Linkedin.init(myToken);
         });
         req.on('error', function (e) {
             console.log("problem with request: " + e.message);
@@ -98,7 +100,7 @@ function handshake(code, ores) {
     req.end();
 }
 
-var linkedin = Linkedin.init(myToken);
+
 
 app.get('/companies', function (req, res) {
 	linkedin.companies_search.name('facebook', 1, function(err, company) {
