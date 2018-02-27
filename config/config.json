@@ -14,12 +14,12 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "b932d6ed518ad2",
-    "password": "abf67a30",
-    "database": "heroku_989f83df2a645e1",
-    "host": "us-cdbr-iron-east-05.cleardb.net",
+    "username": "cpek74m888btfok6",
+    "password": "cm278jsmu89e59t8",
+    "database": "kpvsek74gmawbw5b",
+    "host": " q3vtafztappqbpzn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
 
-// mysql://b932d6ed518ad2:abf67a30@us-cdbr-iron-east-05.cleardb.net/heroku_989f83df2a645e1?reconnect=true
+// mysql://cpek74m888btfok6:cm278jsmu89e59t8@q3vtafztappqbpzn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/kpvsek74gmawbw5b
