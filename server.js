@@ -54,6 +54,8 @@ app.get('/auth', function (req, res) {
     handshake(req.query.code, res);
 });
 
+var myToken;
+
 function handshake(code, ores) {
 
     //set all required post parameters
@@ -84,11 +86,8 @@ function handshake(code, ores) {
 
         });
         res.on('end', function () {
-            //once the access token is received store in DB
-            insertTodb(JSON.parse(data), function (id) {
-                //need to find better way and proper authetication for the user
-                ores.redirect('http://localhost:3000/dashboard/' + id);
-            });
+            //once the access token is received store it
+            myToken = JSON.parse(data);
         });
         req.on('error', function (e) {
             console.log("problem with request: " + e.message);
@@ -97,9 +96,23 @@ function handshake(code, ores) {
     });
     req.write(data);
     req.end();
-
-
 }
+
+var linkedin = Linkedin.init(myToken);
+
+app.get('/companies', function (req, res) {
+	linkedin.companies_search.name('facebook', 1, function(err, company) {
+		console.log(company);
+	    // name = company.companies.values[0].name;
+	    // desc = company.companies.values[0].description;
+	    // industry = company.companies.values[0].industries.values[0].name;
+	    // city = company.companies.values[0].locations.values[0].address.city;
+	    // websiteUrl = company.companies.values[0].websiteUrl;
+	    res.redirect("/");
+	});
+}
+
+
 
 require("./controllers/burgers_controller.js")(app);
 
