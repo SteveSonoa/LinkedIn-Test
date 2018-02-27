@@ -3,6 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var Linkedin = require('node-linkedin')('86iqdrrwi4ttfs', 'Mi8cFFT1VKvypzTu');
 const querystring = require('querystring');
+const OauthParams = require('./config/OauthParams.js');
 
 var PORT = process.env.PORT || 3000;
 var app = express();
