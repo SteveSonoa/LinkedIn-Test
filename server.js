@@ -112,7 +112,7 @@ app.get('/companies', function (req, res) {
 	    // websiteUrl = company.companies.values[0].websiteUrl;
 	    res.redirect("/");
 	});
-}
+});
 
 
 
