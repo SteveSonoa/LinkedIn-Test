@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "testinglinkedin",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "b8905346d92c13",
+    "password": "c173432d",
+    "database": "heroku_9c75d10bb808a7e",
+    "host": "us-cdbr-iron-east-05.cleardb.net",
+    "dialect": "mysql"
+  }
+}
