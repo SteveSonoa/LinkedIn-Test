@@ -87,14 +87,20 @@ module.exports = function(app) {
     }
 
     app.get('/companies', function (req, res) {
-    	linkedin.companies_search.name('facebook', 1, function(err, company) {
-    		console.log(company);
-    	    // name = company.companies.values[0].name;
-    	    // desc = company.companies.values[0].description;
-    	    // industry = company.companies.values[0].industries.values[0].name;
-    	    // city = company.companies.values[0].locations.values[0].address.city;
-    	    // websiteUrl = company.companies.values[0].websiteUrl;
-    	    res.redirect("/");
-    	});
+    	// linkedin.companies_search.name('facebook', 1, function(err, company) {
+    	// 	console.log(company);
+    	//     // name = company.companies.values[0].name;
+    	//     // desc = company.companies.values[0].description;
+    	//     // industry = company.companies.values[0].industries.values[0].name;
+    	//     // city = company.companies.values[0].locations.values[0].address.city;
+    	//     // websiteUrl = company.companies.values[0].websiteUrl;
+    	//     res.end();
+    	// });
+
+        linkedin.companies.company('162479', function(err, company) {
+            console.log(company);
+            res.redirect("/");
+        });
+
     });
 };
