@@ -87,7 +87,7 @@ module.exports = function(app) {
     }
 
     app.get('/companies', function (req, res) {
-        console.log(linkedin);
+        console.log(linkedin.connections.config.accessToken);
     	linkedin.companies_search.name('facebook', 1, function(err, company) {
     		console.log(company);
     	    // name = company.companies.values[0].name;
