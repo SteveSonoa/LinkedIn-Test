@@ -2,7 +2,7 @@
 // const bodyParser = require('body-parser');
 const Linkedin = require('node-linkedin')('86iqdrrwi4ttfs', 'Mi8cFFT1VKvypzTu');
 const querystring = require('querystring');
-const OauthParams = require('./config/OauthParams.js');
+const OauthParams = require('../config/OauthParams.js');
 const fs = require('fs');
 const http = require('https');
 
