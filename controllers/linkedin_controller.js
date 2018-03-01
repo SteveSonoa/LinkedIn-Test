@@ -18,19 +18,18 @@ module.exports = function(app) {
         /**
          *
          * Attached to the redirect_uri will be two important URL arguments that you need to read from the request:
-
          code — The OAuth 2.0 authorization code.
          state — A value used to test for possible CSRF attacks.
          */
 
-    	//TODO: validate state here to secure against CSRF
-    	var error = req.query.error;
-    	var error_description = req.query.error_description;
-    	var state = req.query.state;
-    	var code = req.query.code;
-    	if (error) {
-    		next(new Error(error));
-    	}
+        //TODO: validate state here to secure against CSRF
+        var error = req.query.error;
+        var error_description = req.query.error_description;
+        var state = req.query.state;
+        var code = req.query.code;
+        if (error) {
+            next(new Error(error));
+        }
         /**
          *
          * The code is a value that you will exchange with LinkedIn for an actual OAuth 2.0 access
@@ -74,8 +73,8 @@ module.exports = function(app) {
             res.on('end', function () {
                 //once the access token is received store it
                 myToken = JSON.parse(data);
-    			linkedin = Linkedin.init(myToken);
-    			ores.redirect("/");
+                linkedin = Linkedin.init(myToken.access_token);
+                ores.redirect("/");
             });
             req.on('error', function (e) {
                 console.log("problem with request: " + e.message);
@@ -88,15 +87,16 @@ module.exports = function(app) {
 
     app.get('/companies', function (req, res) {
         console.log(linkedin.connections.config.accessToken);
-    	linkedin.companies_search.name('facebook', 1, function(err, company) {
-    		console.log(company);
-    	    // name = company.companies.values[0].name;
-    	    // desc = company.companies.values[0].description;
-    	    // industry = company.companies.values[0].industries.values[0].name;
-    	    // city = company.companies.values[0].locations.values[0].address.city;
-    	    // websiteUrl = company.companies.values[0].websiteUrl;
-    	    res.redirect("/");
-    	});
+        linkedin.companies_search.name('facebook', 1, function(err, company) {
+            console.log('Merpy merpy mc merpers', company);
+
+            // name = company.companies.values[0].name;
+            // desc = company.companies.values[0].description;
+            // industry = company.companies.values[0].industries.values[0].name;
+            // city = company.companies.values[0].locations.values[0].address.city;
+            // websiteUrl = company.companies.values[0].websiteUrl;
+            res.end();
+        });
     });
 
     app.get('/companies2', function (req, res) {
