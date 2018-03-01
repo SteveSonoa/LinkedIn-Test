@@ -89,7 +89,18 @@ module.exports = function(app) {
     app.get('/companies', function (req, res) {
         console.log(linkedin.connections.config.accessToken);
         linkedin.companies_search.name('facebook', 1, function(err, company) {
-            console.log('Merpy merpy mc merpers', company);
+            console.log('Merpy merpy mc merpers', company.companies.values[0]);
+
+            // company = {
+            //     companies: {
+            //         _count: 1,
+            //         _start: 0,
+            //         _total: 140224,
+            //         values: [
+            //             [Object]
+            //         ]
+            //     }
+            // }
 
             // name = company.companies.values[0].name;
             // desc = company.companies.values[0].description;
