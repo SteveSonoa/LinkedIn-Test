@@ -74,7 +74,7 @@ module.exports = function(app) {
             res.on('end', function () {
                 //once the access token is received store it
                 myToken = JSON.parse(data);
-    			linkedin = Linkedin.init(myToken);
+    			linkedin = Linkedin.init(myToken.access_token);
     			ores.redirect("/");
             });
             req.on('error', function (e) {
