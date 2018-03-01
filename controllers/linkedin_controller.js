@@ -92,6 +92,7 @@ module.exports = function(app) {
             console.log('Merpy merpy mc merpers');
             console.log(company.companies.values[0]);
 
+
             // company = {
             //     companies: {
             //         _count: 1,
