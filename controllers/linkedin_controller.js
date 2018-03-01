@@ -96,7 +96,7 @@ module.exports = function(app) {
             // industry = company.companies.values[0].industries.values[0].name;
             // city = company.companies.values[0].locations.values[0].address.city;
             // websiteUrl = company.companies.values[0].websiteUrl;
-            res.end();
+            res.redirect("/");
         });
     });
 
